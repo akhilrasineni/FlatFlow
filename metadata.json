@@ -1,0 +1,5 @@
+{
+  "name": "FlatFlow",
+  "description": "A comprehensive rental property platform for end-to-end tenant lifecycle management, including property search, site visits, onboarding, and digital agreements.",
+  "requestFramePermissions": ["geolocation"]
+}

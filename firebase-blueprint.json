@@ -1,0 +1,97 @@
+{
+  "entities": {
+    "Property": {
+      "title": "Property",
+      "description": "A rental property listing",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "address": { "type": "string" },
+        "city": { "type": "string" },
+        "area": { "type": "string" },
+        "rent": { "type": "number" },
+        "maintenance": { "type": "number" },
+        "bedrooms": { "type": "number" },
+        "amenities": { "type": "array", "items": { "type": "string" } },
+        "images": { "type": "array", "items": { "type": "string" } },
+        "ownerId": { "type": "string" },
+        "ownerName": { "type": "string" },
+        "ownerPhone": { "type": "string" },
+        "location": { "type": "object", "properties": { "lat": { "type": "number" }, "lng": { "type": "number" } } }
+      },
+      "required": ["title", "address", "city", "area", "rent", "bedrooms", "ownerId"]
+    },
+    "User": {
+      "title": "User",
+      "description": "A user of the platform (Tenant or Owner)",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string" },
+        "displayName": { "type": "string" },
+        "photoURL": { "type": "string" },
+        "role": { "type": "string", "enum": ["tenant", "owner", "admin"] },
+        "phone": { "type": "string" },
+        "kycStatus": { "type": "string", "enum": ["pending", "verified", "rejected"] },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["uid", "email", "role"]
+    },
+    "SiteVisit": {
+      "title": "Site Visit",
+      "description": "A scheduled site visit for a property",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "propertyId": { "type": "string" },
+        "tenantId": { "type": "string" },
+        "scheduledAt": { "type": "string", "format": "date-time" },
+        "status": { "type": "string", "enum": ["scheduled", "completed", "cancelled"] }
+      },
+      "required": ["propertyId", "tenantId", "scheduledAt", "status"]
+    },
+    "Agreement": {
+      "title": "Rental Agreement",
+      "description": "A digital rental agreement between tenant and owner",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "propertyId": { "type": "string" },
+        "tenantId": { "type": "string" },
+        "ownerId": { "type": "string" },
+        "rent": { "type": "number" },
+        "deposit": { "type": "number" },
+        "startDate": { "type": "string", "format": "date" },
+        "durationMonths": { "type": "number" },
+        "status": { "type": "string", "enum": ["pending", "active", "expired", "terminated"] },
+        "exitRequested": { "type": "boolean" },
+        "exitDate": { "type": "string", "format": "date" }
+      },
+      "required": ["propertyId", "tenantId", "ownerId", "rent", "deposit", "startDate", "durationMonths", "status"]
+    },
+    "Payment": {
+      "title": "Payment",
+      "description": "A rent or maintenance payment record",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "agreementId": { "type": "string" },
+        "tenantId": { "type": "string" },
+        "amount": { "type": "number" },
+        "type": { "type": "string", "enum": ["rent", "maintenance", "deposit"] },
+        "status": { "type": "string", "enum": ["pending", "paid", "failed"] },
+        "paidAt": { "type": "string", "format": "date-time" },
+        "dueDate": { "type": "string", "format": "date" }
+      },
+      "required": ["agreementId", "tenantId", "amount", "type", "status", "dueDate"]
+    }
+  },
+  "firestore": {
+    "/properties/{propertyId}": { "schema": "Property", "description": "Property listings" },
+    "/users/{userId}": { "schema": "User", "description": "User profiles" },
+    "/siteVisits/{visitId}": { "schema": "SiteVisit", "description": "Site visit schedules" },
+    "/agreements/{agreementId}": { "schema": "Agreement", "description": "Rental agreements" },
+    "/payments/{paymentId}": { "schema": "Payment", "description": "Payment records" }
+  }
+}
