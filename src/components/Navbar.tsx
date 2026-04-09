@@ -1,7 +1,7 @@
 import React from 'react';
 import { User } from 'firebase/auth';
 import { UserProfile } from '@/types';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui/button.tsx';
 import { Home, Search, LayoutDashboard, LogIn, LogOut, User as UserIcon, Shield } from 'lucide-react';
 
 interface NavbarProps {

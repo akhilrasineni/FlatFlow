@@ -1,7 +1,7 @@
 import React from 'react';
 import Markdown from 'react-markdown';
-import { Card } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
+import { Card } from '@/components/ui/card.tsx';
+import { Button } from '@/components/ui/button.tsx';
 import { FileText, CheckCircle2, PenTool, AlertCircle } from 'lucide-react';
 import { Agreement, Property, UserProfile } from '@/types';
 

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Property } from '@/types';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card.tsx';
+import { Badge } from '@/components/ui/badge.tsx';
+import { Button } from '@/components/ui/button.tsx';
 import { Bed, MapPin, IndianRupee } from 'lucide-react';
 
 interface PropertyCardProps {

@@ -2,14 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { collection, getDocs, query, orderBy, setDoc, doc } from 'firebase/firestore';
 import { db } from '@/lib/firebase';
 import { UserProfile, Property, SiteVisit, Agreement, Payment, Role } from '@/types';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Badge } from '@/components/ui/badge';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card.tsx';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs.tsx';
+import { Badge } from '@/components/ui/badge.tsx';
 import { Users, Home, Calendar, FileText, CreditCard, Search, UserPlus, X } from 'lucide-react';
-import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
-import { Label } from '@/components/ui/label';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Input } from '@/components/ui/input.tsx';
+import { Button } from '@/components/ui/button.tsx';
+import { Label } from '@/components/ui/label.tsx';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select.tsx';
 import { toast } from 'sonner';
 
 export function AdminDashboard() {

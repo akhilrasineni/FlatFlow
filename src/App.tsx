@@ -24,7 +24,7 @@ import { TenantDashboard } from '@/components/TenantDashboard';
 import { OwnerDashboard } from '@/components/OwnerDashboard';
 import { Onboarding } from '@/components/Onboarding';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
-import { Toaster } from '@/components/ui/sonner';
+import { Toaster } from '@/components/ui/sonner.tsx';
 import { toast } from 'sonner';
 
 import { Landing } from '@/components/Landing';
